@@ -20,7 +20,6 @@ import vn.elca.training.service.ProjectService;
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
-	@Override
 	public List<Project> findByQuery(String query) {
 		List<Project> projects = new ArrayList<Project>();
 		

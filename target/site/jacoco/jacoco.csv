@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+unittest-exercise,vn.elca.training.service.impl,ProjectServiceImpl,0,59,0,12,0,13,0,8,0,2
+unittest-exercise,vn.elca.training.dom,Project,0,31,0,0,0,13,0,9,0,9
+unittest-exercise,vn.elca.training.dom,ProjectStore,3,7,0,0,1,2,1,2,1,2

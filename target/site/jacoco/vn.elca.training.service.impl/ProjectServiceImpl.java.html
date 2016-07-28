@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ProjectServiceImpl.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">unittest-exercise</a> &gt; <a href="index.html" class="el_package">vn.elca.training.service.impl</a> &gt; <span class="el_source">ProjectServiceImpl.java</span></div><h1>ProjectServiceImpl.java</h1><pre class="source lang-java linenums">/**
+ * 
+ */
+package vn.elca.training.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+
+import vn.elca.training.dom.Project;
+import vn.elca.training.dom.ProjectStore;
+import vn.elca.training.service.ProjectService;
+
+/**
+ * @author coh
+ *
+ */
+@Service
+<span class="fc" id="L21">public class ProjectServiceImpl implements ProjectService {</span>
+
+	public List&lt;Project&gt; findByQuery(String query) {
+<span class="fc" id="L24">		List&lt;Project&gt; projects = new ArrayList&lt;Project&gt;();</span>
+		
+<span class="fc" id="L26">		String criteria = StringUtils.trimToEmpty(query);</span>
+		
+<span class="fc bfc" id="L28" title="All 2 branches covered.">		if (StringUtils.isBlank(criteria)) {</span>
+<span class="fc" id="L29">			return projects;</span>
+		}
+		
+<span class="fc bfc" id="L32" title="All 2 branches covered.">		for (Project project : ProjectStore.getProjects()) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">			if (StringUtils.containsIgnoreCase(project.getName(), criteria)</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">					|| StringUtils.containsIgnoreCase(&quot;&quot; + project.getNumber(), criteria)</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">					|| StringUtils.containsIgnoreCase(project.getCustomer(), criteria)</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">					|| StringUtils.containsIgnoreCase(project.getLeader(), criteria)) { </span>
+<span class="fc" id="L37">				projects.add(project);</span>
+			}
+<span class="fc" id="L39">		}</span>
+		
+<span class="fc" id="L41">		return projects;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.5.201112152213</span></div></body></html>
